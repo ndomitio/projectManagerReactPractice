@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Projectitem from './Projectitem'
 class Projects extends Component {
 
 
@@ -7,15 +7,15 @@ class Projects extends Component {
   render() {
     let projectitems;
     if(this.props.projects){
-      projectitems = this.props.projects.map(Project =>{
-        console.log(Project);
-      });
+      projectitems = this.props.projects.map(project =>{
+return      (
+<Projectitem project = {project} />
+);
+});
         }
-    console.log(this.props);
-    return (
+  return (
       <div className="Projects">
-    My Projects
-      </div>
+{projectitems}      </div>
     );
   }
 }
