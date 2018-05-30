@@ -1,8 +1,29 @@
 import React, { Component } from 'react';
 
 class AddProject extends Component {
+constructor(){
+  super();
+  this.state = {
+    newProject:{}
+  }
+}
+
 static defaultProps = {
   categories : ['Web Design', 'Web Development', 'Mobile Development']
+}
+//event parameter added
+handleSubmit(e){
+  if(this.refs.title.value === ''){
+    alert('Title is required');
+  }  else{
+      this.setState({newProject:{
+        title: this.refs.title.value,
+        category: this.refs.category.value
+      }}, function(){
+        console.log(this.state);
+      });
+  }
+  e.preventDefault();
 }
 
   render() {
@@ -12,10 +33,10 @@ static defaultProps = {
   return (
       <div >
 <h3>Add Project</h3>
-<form>
+<form onSubmit={this.handleSubmit.bind(this)}>
 <div>
 <lable>Title</lable><br/>
-<input type="text" ref="citle" />
+<input type="text" ref="title" />
 </div>
 
 <div>
@@ -24,6 +45,7 @@ static defaultProps = {
 {categoryOptions}
 </select>
 </div>
+<input type="submit" value="Submit" />
 </form>
       </div>
     );
