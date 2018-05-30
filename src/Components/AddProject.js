@@ -20,7 +20,8 @@ handleSubmit(e){
         title: this.refs.title.value,
         category: this.refs.category.value
       }}, function(){
-        console.log(this.state);
+        //console.log(this.state);
+        this.props.addProject(this.state.newProject);
       });
   }
   e.preventDefault();
@@ -28,7 +29,7 @@ handleSubmit(e){
 
   render() {
     let categoryOptions = this.props.categories.map(category => {
-      return <option key = {category} value="category">{category}</option>
+      return <option key = {category} value={category}>{category}</option>
     });
   return (
       <div >
