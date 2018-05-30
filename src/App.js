@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Projects from './Components/Project';
+import AddProject from './Components/AddProject';
+
 import './App.css';
 
 class App extends Component {
@@ -13,7 +15,7 @@ constructor(){
 componentWillMount(){
 //lifecycle method
 //better implementation than putting data in constructor
-//ajax and outside api 
+//ajax and outside api
 this.setState({projects:[{
   title:'Business Website',
   category: 'Web Design'
@@ -30,8 +32,8 @@ this.setState({projects:[{
   render() {
     return (
       <div className="App">
-    My App
-    <Projects projects = { this.state.projects }/>
+        <AddProject />
+        <Projects projects = { this.state.projects }/>
       </div>
     );
   }
