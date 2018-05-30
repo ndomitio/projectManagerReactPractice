@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Projectitem from './Projectitem'
 class Projects extends Component {
-
+deleteProject(id){
+  this.props.onDelete(id);
+}
 
 
   render() {
@@ -9,7 +11,7 @@ class Projects extends Component {
     if(this.props.projects){
       projectitems = this.props.projects.map(project =>{
 return      (
-<Projectitem key={Projects.title} project = {project} />
+<Projectitem onDelete={this.deleteProject.bind(this)} key={Projects.title} project = {project} />
 );
 });
         }
