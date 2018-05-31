@@ -55,4 +55,10 @@ handleSubmit(e){
   }
 }
 
+AddProject.propTypes = {
+  categories: React.propTypes.array,
+  addProject: React.propTypes.func,
+}
+
+
 export default AddProject;

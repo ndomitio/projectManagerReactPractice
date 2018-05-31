@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Projectitem from './Projectitem'
+
 class Projects extends Component {
 deleteProject(id){
   this.props.onDelete(id);
@@ -25,7 +26,7 @@ return      (
 
 Projects.propTypes = {
   projects: React.propTypes.array,
-  onDelete: React.propTypes.func
+  onDelete: React.PropTypes.func
 }
 
 export default Projects;

@@ -17,4 +17,10 @@ deleteProject(id){
   }
 }
 
+Projectitem.propTypes = {
+  //project: React.PropTypes.object
+  onDelete: React.PropTypes.func
+}
+
+
 export default Projectitem;
