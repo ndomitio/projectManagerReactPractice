@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
+import PropTypes from 'prop-types';
+
 class AddProject extends Component {
 constructor(){
   super();
@@ -56,8 +58,8 @@ handleSubmit(e){
 }
 
 AddProject.propTypes = {
-  categories: React.propTypes.array,
-  addProject: React.propTypes.func,
+  categories: PropTypes.array.isRequired,
+  addProject: PropTypes.func.isRequired
 }
 
 

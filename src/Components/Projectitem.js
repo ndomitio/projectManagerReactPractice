@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Projectitem extends Component {
 deleteProject(id){
@@ -18,8 +19,8 @@ deleteProject(id){
 }
 
 Projectitem.propTypes = {
-  //project: React.PropTypes.object
-  onDelete: React.PropTypes.func
+  project: PropTypes.object.isRequired,
+  onDelete: PropTypes.func.isRequired
 }
 
 
