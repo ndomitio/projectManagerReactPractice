@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import uuid from 'uuid';
 import Projects from './Components/Project';
 import AddProject from './Components/AddProject';
-
+import $ from 'jquery';
 
 import './App.css';
 
@@ -11,27 +11,55 @@ constructor(){
   super();
   this.state ={
     projects:[]
+    todos: []
   }
 }
+
+getToDos(){
+  $.ajax({
+    url: 'https://jsonplaceholder.typicode.com/todos',
+    dataType:'json',
+    cache: false,
+    success: function (data){
+      this.setState({todos:data}, function(){
+        console.log(this.state);
+      });
+    }.bind(this),
+    error: function(xhr, status, err){
+      console.console.log(err);
+    }
+  });
+}
+
+getProjects(){
+  this.setState({projects:[{
+    id:uuid.v4(),
+    title:'Business Website',
+    category: 'Web Design'
+  },{
+    id:uuid.v4(),
+    title:'Social App',
+    category: 'Mobile Development'
+  },{
+    id:uuid.v4(),
+    title:'Ecommerce Shopping Cart',
+    category: 'Web Development'
+  }
+}
+]});
 
 componentWillMount(){
 //lifecycle method
 //better implementation than putting data in constructor
 //ajax and outside api
-this.setState({projects:[{
-  id:uuid.v4(),
-  title:'Business Website',
-  category: 'Web Design'
-},{
-  id:uuid.v4(),
-  title:'Social App',
-  category: 'Mobile Development'
-},{
-  id:uuid.v4(),
-  title:'Ecommerce Shopping Cart',
-  category: 'Web Development'
+
+this.getProjects();
+this.getToDos();
 }
-]});
+
+
+compenentDidMount(){
+  this.getToDos();
 }
 
 handleAddProject(project){
