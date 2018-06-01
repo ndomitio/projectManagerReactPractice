@@ -10,7 +10,7 @@ class App extends Component {
 constructor(){
   super();
   this.state ={
-    projects:[]
+    projects:[],
     todos: []
   }
 }
@@ -45,8 +45,9 @@ getProjects(){
     title:'Ecommerce Shopping Cart',
     category: 'Web Development'
   }
-}
+
 ]});
+}
 
 componentWillMount(){
 //lifecycle method
